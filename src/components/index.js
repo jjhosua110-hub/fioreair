@@ -1,3 +1,5 @@
+import { url } from '../lib/base.js';
+
 /**
  * Header — Site navigation component
  * Props: { navItems, site, currentPath }
@@ -11,13 +13,12 @@ export function Header({ navItems, site, currentPath = '/' }) {
     if (hasChildren) {
       return `
         <li class="nav__item nav__item--has-children">
-          <a href="${item.path}" class="nav__link ${activeClass}">${item.title}
+          <a href="${url(item.path)}" class="nav__link ${activeClass}">${item.title}
             <svg class="nav__arrow" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <ul class="nav__dropdown">
             ${item.children.map(child => {
-              const isChildActive = currentPath === child.path;
-              return `<li><a href="${child.path}" class="nav__dropdown-link ${currentPath === child.path ? 'nav__dropdown-link--active' : ''}">${child.title}</a></li>`;
+              return `<li><a href="${url(child.path)}" class="nav__dropdown-link ${currentPath === child.path ? 'nav__dropdown-link--active' : ''}">${child.title}</a></li>`;
             }).join('')}
           </ul>
         </li>`;
@@ -25,15 +26,15 @@ export function Header({ navItems, site, currentPath = '/' }) {
 
     return `
       <li class="nav__item">
-        <a href="${item.path}" class="nav__link ${activeClass}">${item.title}</a>
+        <a href="${url(item.path)}" class="nav__link ${activeClass}">${item.title}</a>
       </li>`;
   }
 
   return `
     <header class="header">
       <div class="header__inner container">
-        <a href="/" class="header__logo">
-          <img src="/images/fioreair-logo.jpg" alt="${site.title}" class="header__logo-img" width="40" height="40">
+        <a href="${url('/')}" class="header__logo">
+          <img src="${url('/images/fioreair-logo.jpg')}" alt="${site.title}" class="header__logo-img" width="40" height="40">
           <span class="header__logo-text">${site.title}</span>
         </a>
         <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -50,7 +51,6 @@ export function Header({ navItems, site, currentPath = '/' }) {
 
 /**
  * Footer — Site footer component
- * Props: { site, year }
  */
 export function Footer({ site, year = new Date().getFullYear() }) {
   return `
@@ -58,7 +58,7 @@ export function Footer({ site, year = new Date().getFullYear() }) {
       <div class="footer__inner container">
         <div class="footer__grid">
           <div class="footer__brand">
-            <img src="/images/fioreair-logo.jpg" alt="${site.title}" class="footer__logo" width="50" height="50">
+            <img src="${url('/images/fioreair-logo.jpg')}" alt="${site.title}" class="footer__logo" width="50" height="50">
             <h3 class="footer__title">${site.title}</h3>
             <p class="footer__tagline">${site.tagline}</p>
           </div>
@@ -74,19 +74,19 @@ export function Footer({ site, year = new Date().getFullYear() }) {
           <div class="footer__links">
             <h4 class="footer__heading">Quick Links</h4>
             <ul class="footer__list">
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="${url('/')}">Home</a></li>
+              <li><a href="${url('/about.html')}">About Us</a></li>
+              <li><a href="${url('/contact.html')}">Contact</a></li>
             </ul>
           </div>
           <div class="footer__products">
             <h4 class="footer__heading">Products</h4>
             <ul class="footer__list">
-              <li><a href="/products/split-type">Split-Type</a></li>
-              <li><a href="/products/window-type">Window-Type</a></li>
-              <li><a href="/products/cassette">Cassette</a></li>
-              <li><a href="/products/floor-mounted">Floor-Mounted</a></li>
-              <li><a href="/products/ducted">Ducted</a></li>
+              <li><a href="${url('/products/split-type.html')}">Split-Type</a></li>
+              <li><a href="${url('/products/window-type.html')}">Window-Type</a></li>
+              <li><a href="${url('/products/cassette.html')}">Cassette</a></li>
+              <li><a href="${url('/products/floor-mounted.html')}">Floor-Mounted</a></li>
+              <li><a href="${url('/products/ducted.html')}">Ducted</a></li>
             </ul>
           </div>
         </div>
@@ -99,7 +99,6 @@ export function Footer({ site, year = new Date().getFullYear() }) {
 
 /**
  * Hero — Hero section component
- * Props: { title, subtitle, ctaText, ctaLink, backgroundClass }
  */
 export function Hero({ title, subtitle = '', ctaText, ctaLink, backgroundClass = '' }) {
   return `
@@ -107,20 +106,19 @@ export function Hero({ title, subtitle = '', ctaText, ctaLink, backgroundClass =
       <div class="hero__inner container">
         <h1 class="hero__title">${title}</h1>
         ${subtitle ? `<p class="hero__subtitle">${subtitle}</p>` : ''}
-        ${ctaText && ctaLink ? `<a href="${ctaLink}" class="btn btn--primary btn--lg">${ctaText}</a>` : ''}
+        ${ctaText && ctaLink ? `<a href="${url(ctaLink)}" class="btn btn--primary btn--lg">${ctaText}</a>` : ''}
       </div>
     </section>`;
 }
 
 /**
  * BrandCard — Single brand card
- * Props: { brand }
  */
 export function BrandCard({ brand }) {
   return `
     <div class="brand-card">
       <div class="brand-card__logo">
-        <img src="${brand.logo}" alt="${brand.name}" loading="lazy">
+        <img src="${url(brand.logo)}" alt="${brand.name}" loading="lazy">
       </div>
       <h3 class="brand-card__name">${brand.name}</h3>
       <p class="brand-card__desc">${brand.description}</p>
@@ -133,7 +131,6 @@ export function BrandCard({ brand }) {
 
 /**
  * BrandGrid — Grid of brand cards
- * Props: { brands }
  */
 export function BrandGrid({ brands }) {
   return `
@@ -150,14 +147,13 @@ export function BrandGrid({ brands }) {
 
 /**
  * BrandRow — Horizontal brand section within a type page
- * Props: { brand, models, typeName }
  */
 export function BrandRow({ brand, models, typeName }) {
   return `
     <section class="brand-row">
       <div class="container">
         <div class="brand-row__header">
-          <img src="${brand.logo}" alt="${brand.name}" class="brand-row__logo" height="40">
+          <img src="${url(brand.logo)}" alt="${brand.name}" class="brand-row__logo" height="40">
           <h3 class="brand-row__title">${brand.name} ${typeName}</h3>
         </div>
         ${models.length > 0 ? `
@@ -171,13 +167,12 @@ export function BrandRow({ brand, models, typeName }) {
 
 /**
  * TypeCard — Aircon type overview card
- * Props: { type }
  */
 export function TypeCard({ type }) {
   return `
-    <a href="/products/${type.id}.html" class="type-card">
+    <a href="${url(`/products/${type.id}.html`)}" class="type-card">
       <div class="type-card__icon">
-        <img src="${type.icon}" alt="${type.name}" loading="lazy">
+        <img src="${url(type.icon)}" alt="${type.name}" loading="lazy">
       </div>
       <h3 class="type-card__title">${type.name}</h3>
       <p class="type-card__desc">${type.description.substring(0, 120)}...</p>
@@ -190,7 +185,6 @@ export function TypeCard({ type }) {
 
 /**
  * TypeHero — Hero for a specific aircon type page
- * Props: { type, modelCount }
  */
 export function TypeHero({ type, modelCount }) {
   return `
@@ -198,7 +192,7 @@ export function TypeHero({ type, modelCount }) {
       <div class="container">
         <div class="type-hero__content">
           <div class="type-hero__icon">
-            <img src="${type.icon}" alt="${type.name}">
+            <img src="${url(type.icon)}" alt="${type.name}">
           </div>
           <div>
             <h1 class="type-hero__title">${type.name}</h1>
@@ -215,13 +209,12 @@ export function TypeHero({ type, modelCount }) {
 
 /**
  * ProductCard — Single product model card
- * Props: { model, brand }
  */
 export function ProductCard({ model, brand }) {
   return `
     <div class="product-card">
       <div class="product-card__image">
-        <img src="${model.images.main}" alt="${model.model}" loading="lazy">
+        <img src="${url(model.images.main)}" alt="${model.model}" loading="lazy">
       </div>
       <div class="product-card__body">
         <div class="product-card__header">
@@ -248,13 +241,12 @@ export function ProductCard({ model, brand }) {
 
 /**
  * UseCaseCard — Use case card for homepage
- * Props: { useCase }
  */
 export function UseCaseCard({ useCase }) {
   return `
     <div class="use-case-card">
       <div class="use-case-card__icon">
-        <img src="${useCase.icon}" alt="${useCase.name}" loading="lazy">
+        <img src="${url(useCase.icon)}" alt="${useCase.name}" loading="lazy">
       </div>
       <h3 class="use-case-card__title">${useCase.name}</h3>
       <p class="use-case-card__desc">${useCase.summary}</p>
@@ -266,7 +258,6 @@ export function UseCaseCard({ useCase }) {
 
 /**
  * Section — Generic section wrapper
- * Props: { title, subtitle, children, className }
  */
 export function Section({ title, subtitle = '', children, className = '' }) {
   return `
@@ -281,7 +272,6 @@ export function Section({ title, subtitle = '', children, className = '' }) {
 
 /**
  * FeaturedProducts — Featured models row
- * Props: { models, brands }
  */
 export function FeaturedProducts({ models, brands }) {
   const brandMap = Object.fromEntries(brands.map(b => [b.id, b]));
@@ -299,7 +289,6 @@ export function FeaturedProducts({ models, brands }) {
 
 /**
  * StatsBar — Stats section
- * Props: { stats }
  */
 export function StatsBar({ stats }) {
   return `
@@ -319,15 +308,14 @@ export function StatsBar({ stats }) {
 
 /**
  * CTABanner — Call to action banner
- * Props: { text, buttonText, buttonLink }
  */
-export function CTABanner({ text, buttonText = 'Contact Us', buttonLink = '/contact' }) {
+export function CTABanner({ text, buttonText = 'Contact Us', buttonLink = '/contact.html' }) {
   return `
     <section class="cta-banner">
       <div class="container">
         <div class="cta-banner__inner">
           <h2 class="cta-banner__text">${text}</h2>
-          <a href="${buttonLink}" class="btn btn--primary btn--lg">${buttonText}</a>
+          <a href="${url(buttonLink)}" class="btn btn--primary btn--lg">${buttonText}</a>
         </div>
       </div>
     </section>`;
