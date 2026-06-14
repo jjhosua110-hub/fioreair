@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#f0f2f5"/>
+  <!-- ceiling line -->
+  <rect x="0" y="0" width="300" height="170" fill="#E8E8E8"/>
+  <line x1="0" y1="170" x2="300" y2="170" stroke="#AAA" stroke-width="3"/>
+  <!-- hidden unit in ceiling -->
+  <rect x="40" y="20" width="220" height="60" rx="6" fill="#214E8F"/>
+  <rect x="45" y="25" width="50" height="15" rx="3" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="45" y="50" width="210" height="5" rx="2" fill="#3B7DD8" opacity="0.3"/>
+  <!-- ducts branching -->
+  <rect x="40" y="80" width="12" height="90" rx="4" fill="#888"/>
+  <rect x="144" y="80" width="12" height="90" rx="4" fill="#888"/>
+  <rect x="248" y="80" width="12" height="90" rx="4" fill="#888"/>
+  <!-- vent grilles in rooms -->
+  <rect x="15" y="150" width="60" height="12" rx="3" fill="#214E8F"/>
+  <rect x="120" y="150" width="60" height="12" rx="3" fill="#214E8F"/>
+  <rect x="225" y="150" width="60" height="12" rx="3" fill="#214E8F"/>
+  <!-- room dividers -->
+  <line x1="90" y1="175" x2="90" y2="295" stroke="#CCC" stroke-width="2" stroke-dasharray="8,4"/>
+  <line x1="195" y1="175" x2="195" y2="295" stroke="#CCC" stroke-width="2" stroke-dasharray="8,4"/>
+  <!-- room labels -->
+  <text x="52" y="210" font-family="Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">Room 1</text>
+  <text x="150" y="210" font-family="Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">Room 2</text>
+  <text x="255" y="210" font-family="Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">Room 3</text>
+  <!-- airflow arrows -->
+  <path d="M35 175 q0 -15 10 -15" stroke="#1D8CD6" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M150 175 q0 -15 10 -15" stroke="#1D8CD6" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M255 175 q0 -15 10 -15" stroke="#1D8CD6" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">Ducted / Concealed Aircon</text>
+</svg>

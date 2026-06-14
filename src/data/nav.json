@@ -1,0 +1,17 @@
+[
+  { "path": "/", "title": "Home", "order": 1 },
+  {
+    "path": "/products",
+    "title": "Products",
+    "order": 2,
+    "children": [
+      { "path": "/products/split-type.html", "title": "Split-Type" },
+      { "path": "/products/window-type.html", "title": "Window-Type" },
+      { "path": "/products/cassette.html", "title": "Cassette" },
+      { "path": "/products/floor-mounted.html", "title": "Floor-Mounted" },
+      { "path": "/products/ducted.html", "title": "Ducted" }
+    ]
+  },
+  { "path": "/about.html", "title": "About Us", "order": 3 },
+  { "path": "/contact.html", "title": "Contact", "order": 4 }
+]

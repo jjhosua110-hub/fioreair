@@ -1,0 +1,87 @@
+[
+  {
+    "id": "split-type",
+    "name": "Split-Type Aircon",
+    "altNames": ["Mini-Split", "Wall-Mounted Split"],
+    "description": "The most common type for homes and offices. Consists of an indoor unit mounted high on the wall and an outdoor compressor unit. Quiet, efficient, and available in 0.5hp to 5.0hp+ capacities.",
+    "icon": "/images/types/icon-split.svg",
+    "usecases": ["residential", "office", "retail"],
+    "features": [
+      "Quietest operation among common types (as low as 19dB)",
+      "Inverter technology for energy savings of 30-60%",
+      "Available with WiFi/smart controls",
+      "Easy installation — minimal ductwork needed"
+    ],
+    "pros": "Energy-efficient, quiet, wide capacity range, easy to install",
+    "cons": "Wall-mounted unit may not suit all room aesthetics; needs outdoor space for condenser",
+    "order": 1
+  },
+  {
+    "id": "window-type",
+    "name": "Window-Type Aircon",
+    "altNames": ["Window Unit", "Through-the-Wall"],
+    "description": "Self-contained unit installed in a window or through a wall opening. The most affordable option with all components in one chassis — no separate outdoor unit needed.",
+    "icon": "/images/types/icon-window.svg",
+    "usecases": ["residential", "dormitory", "apartment"],
+    "features": [
+      "Lowest upfront cost of all types",
+      "Self-contained — no outdoor unit or refrigerant piping",
+      "Easy to install and remove (ideal for renters)",
+      "Available in standard window sizes"
+    ],
+    "pros": "Cheapest, simplest installation, portable between rooms",
+    "cons": "Noisiest type (40-55dB), blocks window, less energy-efficient than split",
+    "order": 2
+  },
+  {
+    "id": "cassette",
+    "name": "Cassette-Type Aircon",
+    "altNames": ["Ceiling Cassette", "4-Way Cassette"],
+    "description": "Recessed into the ceiling panel with only a grille visible. Distributes air in 4 directions for even cooling across large rooms. The standard for commercial spaces.",
+    "icon": "/images/types/icon-cassette.svg",
+    "usecases": ["office", "commercial", "retail", "restaurant"],
+    "features": [
+      "Invisible — only the grille shows, saves wall/floor space",
+      "4-way airflow for even temperature distribution",
+      "Available in 1.5hp to 5.0hp capacities",
+      "Some models include fresh air intake option"
+    ],
+    "pros": "Clean ceiling look, even cooling across large areas, space-saving",
+    "cons": "Requires drop ceiling, more expensive installation, harder to service",
+    "order": 3
+  },
+  {
+    "id": "floor-mounted",
+    "name": "Floor-Mounted / Floor-Standing Aircon",
+    "altNames": ["Floor Standing", "Floor Console"],
+    "description": "Indoor unit sits on or near the floor rather than high on a wall. Ideal for rooms with limited wall space, high ceilings, or where ceiling installation isn't practical.",
+    "icon": "/images/types/icon-floor.svg",
+    "usecases": ["office", "commercial", "retail", "restaurant"],
+    "features": [
+      "Powerful airflow at floor level where people sit",
+      "Easier installation in rooms with concrete walls",
+      "Available in high-capacity models (2.5hp to 10hp)",
+      "Ideal for rooms with high ceilings"
+    ],
+    "pros": "Good for high ceilings, easy to service, strong airflow",
+    "cons": "Takes up floor space, visible unit and piping",
+    "order": 4
+  },
+  {
+    "id": "ducted",
+    "name": "Ducted / Concealed Aircon",
+    "altNames": ["Ducted Split", "Concealed Duct"],
+    "description": "Indoor unit is hidden in the ceiling or a closet and connected to rooms via ducts. The ultimate invisible cooling — ideal for offices, hotels, and commercial spaces.",
+    "icon": "/images/types/icon-ducted.svg",
+    "usecases": ["commercial", "office", "hotel"],
+    "features": [
+      "Completely hidden — no visible indoor units",
+      "Single unit can serve multiple rooms via duct branches",
+      "Quietest operation (unit is remote from occupied spaces)",
+      "Can integrate with fresh air / ventilation systems"
+    ],
+    "pros": "Invisible, quietest, serves multiple rooms, integrates with ventilation",
+    "cons": "Highest installation cost, requires ceiling space, hardest to retrofit",
+    "order": 5
+  }
+]

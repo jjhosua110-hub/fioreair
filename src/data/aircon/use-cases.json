@@ -1,0 +1,44 @@
+[
+  {
+    "id": "residential",
+    "name": "Residential / Homes",
+    "summary": "For bedrooms, living rooms, apartments, and condos. Prioritizes quiet operation, energy efficiency, and affordability.",
+    "icon": "/images/usecases/icon-home.svg",
+    "types": [
+      { "typeId": "window-type", "recommendation": "Best for small bedrooms and rental units. Most affordable option.", "capacityRange": "0.5hp – 2.5hp" },
+      { "typeId": "split-type", "recommendation": "Best for living rooms, master bedrooms, and condos. Quiet and energy-efficient with inverter tech.", "capacityRange": "0.5hp – 3.0hp" }
+    ]
+  },
+  {
+    "id": "office",
+    "name": "Offices & Coworking Spaces",
+    "summary": "For cubicle farms, private offices, and flexible workspaces. Prioritizes even cooling, quiet operation, and low maintenance.",
+    "icon": "/images/usecases/icon-office.svg",
+    "types": [
+      { "typeId": "split-type", "recommendation": "Good for small offices under 50sqm. Multiple units for larger spaces.", "capacityRange": "1.5hp – 5.0hp" },
+      { "typeId": "cassette", "recommendation": "Standard choice for modern offices with drop ceilings. 4-way airflow covers the whole floor.", "capacityRange": "1.5hp – 5.0hp" },
+      { "typeId": "floor-mounted", "recommendation": "Ideal for offices with high ceilings or concrete walls. Strong airflow at desk level.", "capacityRange": "2.5hp – 10hp" }
+    ]
+  },
+  {
+    "id": "commercial",
+    "name": "Commercial & Industrial",
+    "summary": "For restaurants, retail stores, and large buildings. Prioritizes capacity, durability, and multi-zone control.",
+    "icon": "/images/usecases/icon-commercial.svg",
+    "types": [
+      { "typeId": "cassette", "recommendation": "Standard for retail and restaurants with drop ceilings.", "capacityRange": "2.0hp – 5.0hp" },
+      { "typeId": "ducted", "recommendation": "Best for hotels, large offices, and high-end spaces where invisible cooling is required.", "capacityRange": "3.0hp – 20hp" },
+      { "typeId": "floor-mounted", "recommendation": "Good for warehouses, factories, and buildings without ceiling space.", "capacityRange": "3.0hp – 20hp" }
+    ]
+  },
+  {
+    "id": "retail",
+    "name": "Retail Shops & Showrooms",
+    "summary": "For stores, boutiques, and exhibition spaces. Prioritizes appearance, even cooling, and durability under high foot traffic.",
+    "icon": "/images/usecases/icon-retail.svg",
+    "types": [
+      { "typeId": "cassette", "recommendation": "Discreet ceiling installation keeps the space looking clean.", "capacityRange": "2.0hp – 5.0hp" },
+      { "typeId": "split-type", "recommendation": "Good for smaller shops. Indoor unit can be placed high and out of the way.", "capacityRange": "1.5hp – 3.0hp" }
+    ]
+  }
+]

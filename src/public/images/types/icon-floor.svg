@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- floor line -->
+  <line x1="5" y1="90" x2="95" y2="90" stroke="#AAA" stroke-width="3"/>
+  <!-- floor-standing unit -->
+  <rect x="25" y="15" width="50" height="72" rx="6" fill="#214E8F"/>
+  <!-- top grille -->
+  <rect x="28" y="20" width="44" height="12" rx="3" fill="#3B7DD8" opacity="0.4"/>
+  <!-- front panel grille -->
+  <rect x="30" y="38" width="40" height="3" rx="1" fill="#3B7DD8" opacity="0.5"/>
+  <rect x="30" y="46" width="40" height="3" rx="1" fill="#3B7DD8" opacity="0.5"/>
+  <rect x="30" y="54" width="40" height="3" rx="1" fill="#3B7DD8" opacity="0.5"/>
+  <rect x="30" y="62" width="40" height="3" rx="1" fill="#3B7DD8" opacity="0.5"/>
+  <!-- bottom intake -->
+  <rect x="28" y="72" width="44" height="8" rx="2" fill="#3B7DD8" opacity="0.3"/>
+  <!-- airflow arrows -->
+  <path d="M52 82 l-4 -6 h8 z" fill="#1D8CD6" opacity="0.5"/>
+  <path d="M40 82 l-4 -6 h8 z" fill="#1D8CD6" opacity="0.4"/>
+  <path d="M64 82 l-4 -6 h8 z" fill="#1D8CD6" opacity="0.4"/>
+</svg>

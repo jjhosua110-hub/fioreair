@@ -1,0 +1,15 @@
+{
+  "name": "fioreair",
+  "version": "1.0.0",
+  "description": "FioreAir — Expert Cooling, Trusted Brands",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/generate-pages.js",
+    "build": "npm run prebuild && vite build && node scripts/postbuild.js",
+    "preview": "npx serve dist"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

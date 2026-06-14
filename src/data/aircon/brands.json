@@ -1,0 +1,52 @@
+[
+  {
+    "id": "gree",
+    "name": "Gree",
+    "logo": "/images/brands/gree-logo.svg",
+    "description": "World's largest residential air conditioning manufacturer. Known for innovative, energy-efficient inverter technology with exceptional value.",
+    "website": "https://www.gree.com.ph/",
+    "featured": true,
+    "types": ["split-type", "window-type", "cassette", "floor-mounted"],
+    "order": 1
+  },
+  {
+    "id": "aux",
+    "name": "AUX",
+    "logo": "/images/brands/aux-logo.svg",
+    "description": "Chinese top-3 air conditioner brand with 7 global manufacturing bases. Strong inverter technology and smart features at competitive prices.",
+    "website": "https://auxaircon.com.ph/",
+    "featured": true,
+    "types": ["split-type", "cassette", "floor-mounted", "ducted"],
+    "order": 2
+  },
+  {
+    "id": "daikin",
+    "name": "Daikin",
+    "logo": "/images/brands/daikin-logo.svg",
+    "description": "Japanese pioneer of HVAC technology with over 100 years of innovation. The gold standard for premium residential and commercial air conditioning.",
+    "website": "https://www.daikin.com.ph/",
+    "featured": true,
+    "types": ["split-type", "cassette", "floor-mounted", "ducted"],
+    "order": 3
+  },
+  {
+    "id": "midea",
+    "name": "Midea",
+    "logo": "/images/brands/midea-logo.svg",
+    "description": "World's #1 smart home appliance brand. Innovative cooling solutions with AI-powered efficiency and smart features for modern homes.",
+    "website": "https://www.midea.com/ph",
+    "featured": true,
+    "types": ["split-type", "window-type", "cassette", "floor-mounted"],
+    "order": 4
+  },
+  {
+    "id": "haier",
+    "name": "Haier",
+    "logo": "/images/brands/haier-logo.svg",
+    "description": "Global leader in home appliances and consumer electronics. Known for UV Cool and Clean Cool technologies with smart connectivity.",
+    "website": "https://www.haier.com/ph/",
+    "featured": true,
+    "types": ["split-type", "window-type"],
+    "order": 5
+  }
+]
