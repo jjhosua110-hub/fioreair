@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#f0f2f5"/>
+  <!-- floor line -->
+  <line x1="20" y1="260" x2="280" y2="260" stroke="#AAA" stroke-width="4"/>
+  <!-- floor-standing unit -->
+  <rect x="80" y="40" width="140" height="215" rx="10" fill="#214E8F"/>
+  <!-- top front grille -->
+  <rect x="86" y="50" width="128" height="30" rx="5" fill="#3B7DD8" opacity="0.4"/>
+  <!-- control panel -->
+  <rect x="130" y="55" width="40" height="8" rx="3" fill="#1D8CD6" opacity="0.7"/>
+  <!-- vent slots -->
+  <rect x="88" y="95" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="88" y="108" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="88" y="121" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="88" y="134" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="88" y="147" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="88" y="160" width="124" height="5" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <!-- bottom intake -->
+  <rect x="86" y="220" width="128" height="20" rx="4" fill="#3B7DD8" opacity="0.3"/>
+  <!-- floor base -->
+  <rect x="85" y="245" width="130" height="10" rx="3" fill="#3B7DD8" opacity="0.2"/>
+  <text x="150" y="290" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">Floor-Mounted Aircon</text>
+</svg>

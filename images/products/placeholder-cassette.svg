@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#f0f2f5"/>
+  <!-- ceiling view -->
+  <rect x="40" y="40" width="220" height="220" rx="12" fill="#E8E8E8" stroke="#CCC" stroke-width="2"/>
+  <!-- cassette panel -->
+  <rect x="65" y="65" width="170" height="170" rx="8" fill="#214E8F"/>
+  <!-- grille lines -->
+  <rect x="72" y="80" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="92" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="104" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="116" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="128" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="140" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="152" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="164" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="176" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="188" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="200" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <rect x="72" y="212" width="156" height="4" rx="2" fill="#3B7DD8" opacity="0.4"/>
+  <!-- center logo area -->
+  <rect x="115" y="95" width="70" height="70" rx="35" fill="#1D8CD6" opacity="0.4"/>
+  <!-- 4-way airflow -->
+  <path d="M150 35 l-12 -15 M150 35 l12 -15 M35 150 l-15 -12 M35 150 l-15 12 M265 150 l15 -12 M265 150 l15 12 M150 265 l-12 15 M150 265 l12 15" stroke="#1D8CD6" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="middle">Cassette-Type Aircon</text>
+</svg>

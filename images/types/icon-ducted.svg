@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- ceiling outline -->
+  <rect x="5" y="5" width="90" height="30" rx="4" fill="#E8E8E8" stroke="#BBB" stroke-width="1.5"/>
+  <!-- hidden unit -->
+  <rect x="15" y="8" width="50" height="24" rx="3" fill="#214E8F"/>
+  <!-- duct lines -->
+  <rect x="15" y="12" width="12" height="6" rx="2" fill="#3B7DD8" opacity="0.5"/>
+  <rect x="15" y="22" width="12" height="6" rx="2" fill="#3B7DD8" opacity="0.5"/>
+  <!-- duct going to rooms -->
+  <rect x="15" y="38" width="8" height="30" rx="3" fill="#AAA"/>
+  <rect x="40" y="38" width="8" height="30" rx="3" fill="#AAA"/>
+  <rect x="65" y="38" width="8" height="30" rx="3" fill="#AAA"/>
+  <!-- room vents -->
+  <rect x="8" y="65" width="22" height="6" rx="2" fill="#214E8F"/>
+  <rect x="33" y="65" width="22" height="6" rx="2" fill="#214E8F"/>
+  <rect x="58" y="65" width="22" height="6" rx="2" fill="#214E8F"/>
+  <!-- airflow -->
+  <path d="M12 60 v8 M19 60 v8" stroke="#1D8CD6" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M37 60 v8 M44 60 v8" stroke="#1D8CD6" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M62 60 v8 M69 60 v8" stroke="#1D8CD6" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <!-- ceiling label -->
+  <text x="5" y="88" font-family="Arial, sans-serif" font-size="7" fill="#888">Ceiling concealed</text>
+</svg>
