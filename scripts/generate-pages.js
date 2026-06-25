@@ -9,7 +9,7 @@ import { renderPage } from '../src/lib/render.js';
 import {
   Header, Footer, Hero, BrandGrid, TypeCard, TypeHero,
   BrandRow, ProductCard, FeaturedProducts, StatsBar,
-  CTABanner, UseCaseCard, Section
+  CTABanner, UseCaseCard, Section, BuyerGuide, TypeComparison, TrustStrip
 } from '../src/components/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,43 +57,41 @@ function writePage(relativePath, html) {
   const featuredModels = models.filter(m => m.featured);
   const comps = baseComponents('/');
 
+  const homeStats = [
+    { value: brands.length.toString(), label: 'Partner Brands' },
+    { value: models.length.toString(), label: 'Product Models' },
+    { value: types.length.toString(), label: 'Aircon Types' },
+    { value: useCases.length.toString(), label: 'Use Cases Covered' },
+  ];
+
   const content = `
     ${Hero({
-      title: 'Expert Cooling, Trusted Brands',
-      subtitle: 'FioreAir brings you the finest air conditioning solutions from the world\'s leading brands. Serving Metro Manila and Cavite.',
-      ctaText: 'Browse Products',
-      ctaLink: '/products',
+      eyebrow: 'Aircon supply and recommendations in Cavite & Metro Manila',
+      title: 'Choose the right aircon for your space — not just the first model you see.',
+      subtitle: 'FioreAir helps homes, offices, shops, and commercial spaces compare trusted brands, correct capacity, and the best aircon type for the room.',
+      ctaText: 'Find My Aircon Type',
+      ctaLink: '#buyer-guide',
+      secondaryCtaText: 'Browse Products',
+      secondaryCtaLink: '/products/index.html',
+      trustItems: ['Gree', 'AUX', 'Daikin', 'Midea', 'Haier'],
       backgroundClass: 'hero--home',
     })}
 
-    ${Section({
-      title: 'Aircon Types',
-      subtitle: 'Find the perfect cooling solution for your space',
-      children: `<div class="type-grid">${types.map(t => TypeCard({ type: t })).join('')}</div>`,
-    })}
+    <div id="buyer-guide">
+      ${BuyerGuide({ useCases, typeMap })}
+    </div>
+
+    ${TypeComparison({ types })}
 
     ${BrandGrid({ brands: brands.filter(b => b.featured) })}
 
-    ${Section({
-      title: 'Find Your Solution',
-      subtitle: 'Not sure what you need? Browse by your space type.',
-      className: 'section--featured',
-      children: `<div class="use-case-grid">${useCases.map(uc => UseCaseCard({ useCase: uc })).join('')}</div>`,
-    })}
+    ${FeaturedProducts({ models: featuredModels.slice(0, 6), brands })}
 
-    ${FeaturedProducts({ models, brands })}
-
-    ${StatsBar({
-      stats: [
-        { value: brands.length.toString(), label: 'Partner Brands' },
-        { value: models.length.toString(), label: 'Product Models' },
-        { value: types.length.toString(), label: 'Aircon Types' },
-        { value: useCases.length.toString(), label: 'Use Cases Covered' },
-      ],
-    })}
+    ${TrustStrip({ stats: homeStats })}
 
     ${CTABanner({
-      text: 'Ready to find the perfect aircon for your space?',
+      text: 'Tell us your room size and use case. We will help narrow the options before you buy.',
+      buttonText: 'Request Recommendation',
     })}
   `;
 
@@ -110,18 +108,22 @@ function writePage(relativePath, html) {
 {
   const comps = baseComponents('/products');
   const content = `
-    <section class="page-header">
-      <div class="container">
-        <h1 class="page-header__title">All Aircon Types</h1>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="type-grid">
-          ${types.map(t => TypeCard({ type: t })).join('')}
-        </div>
-      </div>
-    </section>
+    ${Hero({
+      eyebrow: 'Product guide',
+      title: 'Compare aircon types before choosing a model.',
+      subtitle: 'Start with the installation style that fits your room, ceiling, noise requirement, and budget. Then open the category to view available models.',
+      ctaText: 'Ask for Help',
+      ctaLink: '/contact.html',
+      secondaryCtaText: 'View Split-Type',
+      secondaryCtaLink: '/products/split-type.html',
+      backgroundClass: 'hero--compact',
+    })}
+    ${TypeComparison({ types })}
+    ${Section({
+      title: 'Browse all aircon type guides',
+      subtitle: 'Each guide explains the best use case, strengths, trade-offs, and available models.',
+      children: `<div class="type-grid type-grid--compact">${types.map(t => TypeCard({ type: t })).join('')}</div>`,
+    })}
   `;
 
   writePage('products/index.html', renderPage({

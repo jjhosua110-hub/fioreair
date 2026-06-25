@@ -98,15 +98,34 @@ export function Footer({ site, year = new Date().getFullYear() }) {
 }
 
 /**
- * Hero — Hero section component
+ * Hero — Flexible hero section component
  */
-export function Hero({ title, subtitle = '', ctaText, ctaLink, backgroundClass = '' }) {
+export function Hero({
+  title,
+  subtitle = '',
+  eyebrow = '',
+  ctaText,
+  ctaLink,
+  secondaryCtaText,
+  secondaryCtaLink,
+  trustItems = [],
+  backgroundClass = ''
+}) {
   return `
     <section class="hero ${backgroundClass}">
       <div class="hero__inner container">
+        ${eyebrow ? `<p class="hero__eyebrow">${eyebrow}</p>` : ''}
         <h1 class="hero__title">${title}</h1>
         ${subtitle ? `<p class="hero__subtitle">${subtitle}</p>` : ''}
-        ${ctaText && ctaLink ? `<a href="${url(ctaLink)}" class="btn btn--primary btn--lg">${ctaText}</a>` : ''}
+        ${(ctaText && ctaLink) || (secondaryCtaText && secondaryCtaLink) ? `
+          <div class="hero__actions">
+            ${ctaText && ctaLink ? `<a href="${url(ctaLink)}" class="btn btn--primary btn--lg">${ctaText}</a>` : ''}
+            ${secondaryCtaText && secondaryCtaLink ? `<a href="${url(secondaryCtaLink)}" class="btn btn--ghost btn--lg">${secondaryCtaText}</a>` : ''}
+          </div>` : ''}
+        ${trustItems.length ? `
+          <div class="hero__trust" aria-label="FioreAir trust highlights">
+            ${trustItems.map(item => `<span>${item}</span>`).join('')}
+          </div>` : ''}
       </div>
     </section>`;
 }
@@ -134,12 +153,21 @@ export function BrandCard({ brand }) {
  */
 export function BrandGrid({ brands }) {
   return `
-    <section class="section">
+    <section class="section section--brands">
       <div class="container">
-        <h2 class="section__title">Our Partner Brands</h2>
-        <p class="section__subtitle">We proudly carry the finest air conditioning brands in the industry</p>
-        <div class="brand-grid">
-          ${brands.map(b => BrandCard({ brand: b })).join('')}
+        <div class="section-split-header">
+          <div>
+            <p class="section-kicker">Authorized options</p>
+            <h2 class="section__title section__title--left">Partner brands for every budget</h2>
+          </div>
+          <p class="section__subtitle section__subtitle--left">We help customers compare trusted aircon brands based on room size, comfort needs, budget, and after-sales support.</p>
+        </div>
+        <div class="brand-strip">
+          ${brands.map(b => `
+            <a href="${b.website}" class="brand-pill" target="_blank" rel="noopener">
+              <img src="${url(b.logo)}" alt="${b.name}" loading="lazy">
+              <span>${b.name}</span>
+            </a>`).join('')}
         </div>
       </div>
     </section>`;
@@ -242,18 +270,17 @@ export function ProductCard({ model, brand }) {
 /**
  * UseCaseCard — Use case card for homepage
  */
-export function UseCaseCard({ useCase }) {
+export function UseCaseCard({ useCase, featuredTypeName = '' }) {
   return `
-    <div class="use-case-card">
-      <div class="use-case-card__icon">
-        <img src="${url(useCase.icon)}" alt="${useCase.name}" loading="lazy">
-      </div>
+    <a href="${url(`/by-use-case/${useCase.id}.html`)}" class="use-case-card">
+      <span class="use-case-card__label">${featuredTypeName || 'Recommended options'}</span>
       <h3 class="use-case-card__title">${useCase.name}</h3>
       <p class="use-case-card__desc">${useCase.summary}</p>
       <div class="use-case-card__types">
         ${useCase.types.map(t => `<span class="badge">${t.typeId.replace('-', ' ')}</span>`).join('')}
       </div>
-    </div>`;
+      <span class="use-case-card__link">View recommendation →</span>
+    </a>`;
 }
 
 /**
@@ -314,8 +341,77 @@ export function CTABanner({ text, buttonText = 'Contact Us', buttonLink = '/cont
     <section class="cta-banner">
       <div class="container">
         <div class="cta-banner__inner">
+          <p class="cta-banner__eyebrow">Need help choosing?</p>
           <h2 class="cta-banner__text">${text}</h2>
           <a href="${url(buttonLink)}" class="btn btn--primary btn--lg">${buttonText}</a>
+        </div>
+      </div>
+    </section>`;
+}
+
+/**
+ * BuyerGuide — Guided buyer block for homepage; avoids another plain card grid.
+ */
+export function BuyerGuide({ useCases, typeMap }) {
+  return `
+    <section class="buyer-guide">
+      <div class="container buyer-guide__grid">
+        <div class="buyer-guide__intro">
+          <p class="section-kicker">Start with your space</p>
+          <h2>Find the right aircon before comparing brands</h2>
+          <p>Most buyers do not need every model first. They need the correct aircon type for the room, ceiling, noise level, and budget.</p>
+          <a href="${url('/contact.html')}" class="btn btn--outline">Ask for sizing help</a>
+        </div>
+        <div class="buyer-guide__cards">
+          ${useCases.map(uc => {
+            const firstType = typeMap[uc.types[0]?.typeId];
+            return UseCaseCard({ useCase: uc, featuredTypeName: firstType ? `Best start: ${firstType.name.replace(' Aircon', '')}` : '' });
+          }).join('')}
+        </div>
+      </div>
+    </section>`;
+}
+
+/**
+ * TypeComparison — Compact comparison table for product overview pages.
+ */
+export function TypeComparison({ types }) {
+  return `
+    <section class="section section--comparison">
+      <div class="container">
+        <div class="section-split-header">
+          <div>
+            <p class="section-kicker">Quick comparison</p>
+            <h2 class="section__title section__title--left">Compare aircon types</h2>
+          </div>
+          <p class="section__subtitle section__subtitle--left">Use this as a short guide before opening each product category.</p>
+        </div>
+        <div class="comparison-table" role="table" aria-label="Aircon type comparison">
+          ${types.map(type => `
+            <a href="${url(`/products/${type.id}.html`)}" class="comparison-row" role="row">
+              <span class="comparison-row__type"><img src="${url(type.icon)}" alt="" loading="lazy"> ${type.name}</span>
+              <span><strong>Best for:</strong> ${type.usecases.slice(0, 3).join(', ')}</span>
+              <span><strong>Strength:</strong> ${type.pros.split(',')[0]}</span>
+              <span class="comparison-row__link">View models →</span>
+            </a>`).join('')}
+        </div>
+      </div>
+    </section>`;
+}
+
+/**
+ * TrustStrip — Small proof section to break repeated card sections.
+ */
+export function TrustStrip({ stats }) {
+  return `
+    <section class="trust-strip">
+      <div class="container trust-strip__inner">
+        <div>
+          <p class="section-kicker">Why FioreAir</p>
+          <h2>Clean recommendations, trusted brands, local support.</h2>
+        </div>
+        <div class="trust-strip__stats">
+          ${stats.map(s => `<div><strong>${s.value}</strong><span>${s.label}</span></div>`).join('')}
         </div>
       </div>
     </section>`;
